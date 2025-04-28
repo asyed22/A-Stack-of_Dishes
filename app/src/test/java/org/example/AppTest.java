@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest {
     @Test
     void testStackPushAndSize() {
-        DishStack<Dish> stack = new DishStack<>(3);
+        DishStack stack = new DishStack(3);
         assertEquals(0, stack.size());
 
         stack.push(new Dish("Plate 1"));
@@ -16,7 +16,7 @@ class AppTest {
 
     @Test
     void testStackPeek() {
-        DishStack<Dish> stack = new DishStack<>(3);
+        DishStack stack = new DishStack(3);
         Dish dish = new Dish("Peek Dish");
         stack.push(dish);
 
@@ -29,7 +29,7 @@ class AppTest {
 
     @Test
     void testStackPop() {
-        DishStack<Dish> stack = new DishStack<>(3);
+        DishStack stack = new DishStack(3);
         Dish dish1 = new Dish("Dish 1");
         Dish dish2 = new Dish("Dish 2");
 
@@ -43,7 +43,7 @@ class AppTest {
 
     @Test
     void testStackClear() {
-        DishStack<Dish> stack = new DishStack<>(3);
+        DishStack stack = new DishStack(3);
         stack.push(new Dish("Dish 1"));
         stack.push(new Dish("Dish 2"));
 

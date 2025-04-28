@@ -2,7 +2,7 @@ package org.example;
 
 public class App {
     public static void main(String[] args) {
-        DishStack<Dish> stack = new DishStack<>(5); // Maximum size = 5
+        DishStack stack = new DishStack(5); // Maximum size = 5
 
         Dish oneDish = new Dish("A dish with one fish pattern on it");
         Dish twoDish = new Dish("A dish with two fish patterns on it");
@@ -34,41 +34,39 @@ public class App {
     }
 }
 
-class DishStack<T> {
-    private Object[] stack;
+class DishStack {
+    private Dish[] stack;
     private int top;
     private int capacity;
 
     public DishStack(int capacity) {
         this.capacity = capacity;
-        stack = new Object[capacity];
+        stack = new Dish[capacity];
         top = -1;
     }
 
-    public void push(T item) {
+    public void push(Dish item) {
         if (top >= capacity - 1) {
-            System.out.println("Stack is full. Cannot push: " + item);
+            System.out.println("Stack is full. Cannot push: " + item.getDescription());
             return;
         }
         stack[++top] = item;
     }
 
-    @SuppressWarnings("unchecked")
-    public T pop() {
+    public Dish pop() {
         if (top == -1) {
             System.out.println("Stack is empty. Cannot pop.");
             return null;
         }
-        return (T) stack[top--];
+        return stack[top--];
     }
 
-    @SuppressWarnings("unchecked")
-    public T peek() {
+    public Dish peek() {
         if (top == -1) {
             System.out.println("Stack is empty. Nothing to peek.");
             return null;
         }
-        return (T) stack[top];
+        return stack[top];
     }
 
     public int size() {
